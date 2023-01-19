@@ -81,3 +81,8 @@
 | value | ```varchar(255)``` |
 | count | ```int``` |
 
+### 8. Topic
+| Field | Datatype | 
+| --- | --- |
+| topicId | ```bigserial PRIMARY KEY not null``` |
+| value | ```varchar(255)``` |
