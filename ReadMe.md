@@ -3,7 +3,8 @@
 ### 1. User
 | Field | Datatype | 
 | --- | --- |
-| username | ```varchar(255) PRIMARY KEY not null UNIQUE``` |
+| userId | ```bigserial PRIMARY KEY not null``` |
+| username | ```varchar(255)``` |
 | name | ```varchar(255)``` |
 | email | ```varchar(255)``` |
 | dob | ```date``` |
@@ -20,5 +21,63 @@
 | notifications | ```[ Notification ]``` |
 
 
+### 2. Relation
+| Field | Datatype | 
+| --- | --- |
+| connectionId | ```bigserial PRIMARY KEY not null``` | 
+| userId | ```userId``` |
+| followerId | ```userId``` |
 
+### 3. Message
+| Field | Datatype | 
+| --- | --- |
+| messageId | ```bigserial PRIMARY KEY not null``` | 
+| senderId | ```userId``` |
+| receiver | ```userId``` |
+| content | ```text``` |
+| timestamp | ```timestamp``` |
+
+### 4. Notification
+| Field | Datatype | 
+| --- | --- |
+| notificationId | ```bigserial PRIMARY KEY not null``` |
+| title | ```varchar(255)``` |
+| content | ```text``` |
+| timestamp | ```timestamp``` |
+| --- | --- |
+| linked | ```[ userId ]``` |
+
+### 5. Tweet
+| Field | Datatype | 
+| --- | --- |
+| tweetId | ```bigserial PRIMARY KEY not null``` |
+| author | ```userId``` |
+| content | ```text``` |
+| view | ```int``` |
+| timestamp | ```timestamp``` |
+| --- | --- |
+| reply | ```[ replyId ]``` |
+| retweets | ```[ userId ]``` |
+| likes | ```[ userId ]``` |
+| tags | ```[ tag ]``` |
+
+### 6. reply
+| Field | Datatype | 
+| --- | --- |
+| replyId | ```bigserial PRIMARY KEY not null``` |
+| author | ```userId``` |
+| content | ```text``` |
+| timestamp | ```timestamp``` |
+| --- | --- |
+| reply | ```[ replyId ]``` |
+| retweets | ```[ userId ]``` |
+| likes | ```[ userId ]``` |
+| tags | ```[ tag ]``` |
+
+### 7. Tag
+| Field | Datatype | 
+| --- | --- |
+| tagId | ```bigserial PRIMARY KEY not null``` |
+| value | ```varchar(255)``` |
+| count | ```int``` |
 
