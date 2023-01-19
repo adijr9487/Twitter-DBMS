@@ -11,7 +11,7 @@
 | joinedAt | ```date``` |
 | avatar | ```varchar(255)``` |
 | status | ```varchar(255)``` |
-| -- | -- |
+| Referencing Arrays |
 | followers | ```[ Follow ]``` |
 | followings | ```[ Follow ]``` |
 | tweets | ```[ Tweet ]```  |
