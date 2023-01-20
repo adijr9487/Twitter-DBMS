@@ -84,3 +84,4 @@ CREATE TABLE Topic(
     topicId bigserial PRIMARY KEY not null,
     value varchar(255)
 );
+

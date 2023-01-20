@@ -9,5 +9,3 @@
 --     'Hello!', 
 --     CAST('2019-01-01' AS DATE)
 -- );
-
-SELECT * FROM reply;

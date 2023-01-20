@@ -2,7 +2,7 @@
 -- User Relation 
 -- [User Follower]
 DROP TABLE IF EXISTS Usr_Relation;
-CREATE TABLE Usr_R  elation(
+CREATE TABLE Usr_Relation(
     connectionId bigserial PRIMARY KEY not null,
     userId bigserial,
     followerId bigserial,
@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS Usr_Tweet;
 CREATE TABLE Usr_Tweet(
     userId bigserial,
     tweetId bigserial,
+    isDeleted bool,
     FOREIGN KEY (userId) REFERENCES Usr(userId),
     FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId)
 );
@@ -91,13 +92,11 @@ CREATE TABLE Reply_like(
 );
 
 -- [Reply - Retweet]
-DROP TABLE IF EXISTS Reply_Retweet;
-CREATE TABLE Reply_Retweet(
+DROP TABLE IF EXISTS Reply_tweet;
+CREATE TABLE Reply_tweet(
     replyId bigserial,
-    userId bigserial,
     tweetId bigserial,
     FOREIGN KEY (replyId) REFERENCES Reply(replyId),
-    FOREIGN KEY (userId) REFERENCES Usr(userId),
     FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId)
 );
 
