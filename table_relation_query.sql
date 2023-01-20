@@ -1,7 +1,8 @@
 -- Relation Table
 -- User Relation 
 -- [User Follower]
-CREATE TABLE IF NOT EXISTS Usr_Relation(
+DROP TABLE IF EXISTS Usr_Relation;
+CREATE TABLE Usr_R  elation(
     connectionId bigserial PRIMARY KEY not null,
     userId bigserial,
     followerId bigserial,
@@ -10,7 +11,8 @@ CREATE TABLE IF NOT EXISTS Usr_Relation(
 );
 
 -- [User Notification]
-CREATE TABLE IF NOT EXISTS Usr_Notification(
+DROP TABLE IF EXISTS Usr_Notification;
+CREATE TABLE Usr_Notification(
     userId bigserial,
     notificationId bigserial,
     FOREIGN KEY (userId) REFERENCES Usr(userId),
@@ -18,7 +20,8 @@ CREATE TABLE IF NOT EXISTS Usr_Notification(
 );
 
 -- [User Tweet]
-CREATE TABLE IF NOT EXISTS Usr_Tweet(
+DROP TABLE IF EXISTS Usr_Tweet;
+CREATE TABLE Usr_Tweet(
     userId bigserial,
     tweetId bigserial,
     FOREIGN KEY (userId) REFERENCES Usr(userId),
@@ -26,7 +29,8 @@ CREATE TABLE IF NOT EXISTS Usr_Tweet(
 );
 
 -- [User Topic]
-CREATE TABLE IF NOT EXISTS Usr_Topic(
+DROP TABLE IF EXISTS Usr_Topic;
+CREATE TABLE Usr_Topic(
     userId bigserial,
     topicId bigserial,
     FOREIGN KEY (userId) REFERENCES Usr(userId),
@@ -34,37 +38,43 @@ CREATE TABLE IF NOT EXISTS Usr_Topic(
 );
 -- Tweet Relation
 -- [Tweet - Tag]
-CREATE TABLE IF NOT EXISTS Tweet_Tag(
+DROP TABLE IF EXISTS Tweet_Tag;
+CREATE TABLE Tweet_Tag(
     tweetId bigserial,
     tagId bigserial,
     FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId),
     FOREIGN KEY (tagId) REFERENCES Tag(tagId)
 );
 -- [Tweet - Reply]
-CREATE TABLE IF NOT EXISTS Tweet_Reply(
+DROP TABLE IF EXISTS Tweet_Reply;
+CREATE TABLE Tweet_Reply(
     tweetId bigserial,
     replyId bigserial,
     FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId),
     FOREIGN KEY (replyId) REFERENCES Reply(replyId)
 );
 -- [Tweet - User Likes]
-CREATE TABLE IF NOT EXISTS Tweet_like(
+DROP TABLE IF EXISTS Tweet_like;
+CREATE TABLE Tweet_like(
     tweetId bigserial,
     userId bigserial,
     FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId),
     FOREIGN KEY (userId) REFERENCES Usr(userId)
 );
 --[Tweet - User Retweet]
-CREATE TABLE IF NOT EXISTS Tweet_Retweet(
+DROP TABLE IF EXISTS Tweet_Retweet;
+CREATE TABLE Tweet_Retweet(
     tweetId bigserial,
     userId bigserial,
+    isDeleted boolean,
     FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId),
     FOREIGN KEY (userId) REFERENCES Usr(userId)
 );
 
 -- Reply
 -- [Reply - Reply]
-CREATE TABLE IF NOT EXISTS Reply_Reply(
+DROP TABLE IF EXISTS Reply_Reply;
+CREATE TABLE Reply_Reply(
     replyId bigserial,
     threadId bigserial,
     FOREIGN KEY (replyId) REFERENCES Reply(replyId),
@@ -72,7 +82,8 @@ CREATE TABLE IF NOT EXISTS Reply_Reply(
 );
 
 -- [Reply - Likes]
-CREATE TABLE IF NOT EXISTS Reply_like(
+DROP TABLE IF EXISTS Reply_like;
+CREATE TABLE Reply_like(
     replyId bigserial,
     userId bigserial,
     FOREIGN KEY (replyId) REFERENCES Reply(replyId),
@@ -80,15 +91,19 @@ CREATE TABLE IF NOT EXISTS Reply_like(
 );
 
 -- [Reply - Retweet]
-CREATE TABLE IF NOT EXISTS Reply_Retweet(
+DROP TABLE IF EXISTS Reply_Retweet;
+CREATE TABLE Reply_Retweet(
     replyId bigserial,
     userId bigserial,
+    tweetId bigserial,
     FOREIGN KEY (replyId) REFERENCES Reply(replyId),
-    FOREIGN KEY (userId) REFERENCES Usr(userId)
+    FOREIGN KEY (userId) REFERENCES Usr(userId),
+    FOREIGN KEY (tweetId) REFERENCES Tweet(tweetId)
 );
 
 -- [Reply - Tag]
-CREATE TABLE IF NOT EXISTS Reply_Tag(
+DROP TABLE IF EXISTS Reply_Tag;
+CREATE TABLE Reply_Tag(
     replyId bigserial,
     tagId bigserial,
     FOREIGN KEY (replyId) REFERENCES Reply(replyId),

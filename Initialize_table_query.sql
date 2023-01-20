@@ -13,21 +13,23 @@
 --     IS_TEMPLATE = False;
 
 -- User table
-CREATE TABLE IF NOT EXISTS Usr(
+DROP TABLE IF EXISTS Usr CASCADE;
+CREATE TABLE Usr(
     userId bigserial PRIMARY KEY not null,
     username varchar(255),
     name varchar(255),
     email varchar(255),
     dob date,
     location varchar(255),
-    joinedAt timestamp,
     avatar text,
-    status varchar(255)
+    joinedAt timestamp,
+    status text
 );
 
 -- Message Table
 -- [Message]
-CREATE TABLE IF NOT EXISTS Message(
+DROP TABLE IF EXISTS Message CASCADE;
+CREATE TABLE Message(
     messageId bigserial PRIMARY KEY not null,
     senderId bigserial,
     receiverId bigserial,
@@ -38,7 +40,8 @@ CREATE TABLE IF NOT EXISTS Message(
 );
 
 -- Notification Table
-CREATE TABLE IF NOT EXISTS Notification(
+DROP TABLE IF EXISTS Notification CASCADE;
+CREATE TABLE Notification(
     notificationId bigserial PRIMARY KEY not null,
     title varchar(255),
     content text,
@@ -46,17 +49,20 @@ CREATE TABLE IF NOT EXISTS Notification(
 );
 
 -- Tweet Table
-CREATE TABLE IF NOT EXISTS Tweet(
+DROP TABLE IF EXISTS Tweet CASCADE;
+CREATE TABLE Tweet(
     tweetId bigserial PRIMARY KEY not null,
     authorId bigserial,
     content text,
     viewCount int,
     timestamp timestamp,
+    isDeleted boolean,
     FOREIGN KEY (authorId) REFERENCES Usr(userId)
 );
 
 -- Reply Table
-CREATE TABLE IF NOT EXISTS Reply(
+DROP TABLE IF EXISTS Reply CASCADE;
+CREATE TABLE Reply(
     replyId bigserial PRIMARY KEY not null,
     authorId bigserial,
     content text,
@@ -65,14 +71,16 @@ CREATE TABLE IF NOT EXISTS Reply(
 );
 
 -- Tag Table
-CREATE TABLE IF NOT EXISTS Tag(
+DROP TABLE IF EXISTS Tag CASCADE;
+CREATE TABLE Tag(
     tagId bigserial PRIMARY KEY not null,
     value varchar(255),
     count int
-)
+);
 
 -- Topic Table
-CREATE TABLE IF NOT EXISTS Topic(
+DROP TABLE IF EXISTS Topic CASCADE;
+CREATE TABLE Topic(
     topicId bigserial PRIMARY KEY not null,
     value varchar(255)
 );
