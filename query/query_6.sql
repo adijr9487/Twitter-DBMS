@@ -1,0 +1,1 @@
+SELECT value, count from topics order by count DESC;

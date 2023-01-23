@@ -1,12 +1,5 @@
-INSERT INTO CONNECTIONS(head_user_id, tail_user_id, head_tail)
-values
-(1, 2, '1_2'),
-(3, 2, '3_2'),
-(4, 2, '4_2'),
-(5, 2, '5_2'),
-(6, 5, '6_5'),
-(6, 6, '6_6'),
-(6, 8, '6_8'),
-(6, 10, '6_10'),
-(16, 10, '16_10'),
-(15, 10, '15_10');
+insert into CONNECTIONS(head_user_id, tail_user_id, head_tail)
+select u1.id, u2.id, concat(u1.id, '_', u2.id)
+from users as u1, users as u2
+where u1.id != u2.id
+order by random() limit 1200;
