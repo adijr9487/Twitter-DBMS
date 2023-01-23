@@ -7,10 +7,12 @@ CREATE TABLE Tweets(
     user_id	bigInt not null,
 	content	text not null,
     views bigint not null default 0,	
-	is_deleted bool	not null default 0,	
+	is_deleted bool	not null default false,	
+    location_id bigint not null default 1,
     createdAt timestamp without time zone not null default now(),
 	updatedAt timestamp without time zone not null default now(),
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    FOREIGN KEY (location_id) REFERENCES AddressConstants(id)
 );
 
 -- Tweets_Retweets Table

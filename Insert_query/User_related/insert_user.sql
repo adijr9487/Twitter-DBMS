@@ -1,0 +1,18 @@
+INSERT INTO Users (name, username, date_of_birth, avatar, status, createAt, updatedAt)
+VALUES ('John Doe', 'johndoe001', '1970-01-01', 'https://example.com/avatar1.jpg', 'active', NOW(), NOW()),
+       ('Jane Doe', 'janedoe002', '1980-01-01', 'https://example.com/avatar2.jpg', 'active', NOW(), NOW()),
+       ('Bob Smith', 'bobsmith003', '1990-01-01', 'https://example.com/avatar3.jpg', 'active', NOW(), NOW()),
+       ('Amy Johnson', 'amyjohnson004', '2000-01-01', 'https://example.com/avatar4.jpg', 'active', NOW(), NOW()),
+       ('Mike Brown', 'mikebrown005', '2010-01-01', 'https://example.com/avatar5.jpg', 'active', NOW(), NOW()),
+       ('Samantha Davis', 'samanthadavis006', '1995-01-01', 'https://example.com/avatar6.jpg', 'active', NOW(), NOW()),
+       ('Ashley Wilson', 'ashleywilson007', '1985-01-01', 'https://example.com/avatar7.jpg', 'active', NOW(), NOW()),
+       ('David Anderson', 'davidanderson008', '1975-01-01', 'https://example.com/avatar8.jpg', 'active', NOW(), NOW()),
+       ('Jessica Thompson', 'jessicathompson009', '1965-01-01', 'https://example.com/avatar9.jpg', 'active', NOW(), NOW()),
+       ('Joshua Gonzalez', 'joshuagonzalez010', '1980-01-01', 'https://example.com/avatar10.jpg', 'active', NOW(), NOW()),
+       ('Matthew Martinez', 'matthewmartinez011', '1990-01-01', 'https://example.com/avatar11.jpg', 'active', NOW(), NOW()),
+       ('Emily Robinson', 'emilyrobinson012', '2000-01-01', 'https://example.com/avatar12.jpg', 'active', NOW(), NOW()),
+       ('Madison White', 'madisonwhite013', '2010-01-01', 'https://example.com/avatar13.jpg', 'active', NOW(), NOW()),
+       ('Jacob Harris', 'jacobharris014', '1995-01-01', 'https://example.com/avatar14.jpg', 'active', NOW(), NOW()),
+       ('Nicholas Lewis', 'nicholaslewis015', '1985-01-01', 'https://example.com/avatar15.jpg', 'active', NOW(), NOW()),
+       ('Ryan Scott', 'ryanscott016', '1975-01-01', 'https://example.com/avatar16.jpg', 'active', NOW(), NOW()),
+       ('Andrew Green', 'andrewgreen017', '1965-01-01', 'https://example.com/avatar17.jpg', 'active', NOW(), NOW())

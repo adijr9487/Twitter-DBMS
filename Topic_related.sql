@@ -5,7 +5,7 @@ CREATE TABLE Topics(
     value varchar(255) not null,
     count bigint not null default 0,
     createdAt timestamp without time zone not null default now(),
-    updatedAt timestamp without time zone not null default now(),
+    updatedAt timestamp without time zone not null default now()
 );
 
 -- Users-Topic table

@@ -9,7 +9,7 @@ CREATE TABLE Users(
     date_of_birth timestamp without time zone not null,
     avatar varchar(255),
     status varchar(255),
-    is_blue boolean not null DEFAULT 0,
+    is_blue bool not null DEFAULT false,
     createAt timestamp without time zone not null,
     updatedAt timestamp without time zone not null
 );
@@ -47,8 +47,10 @@ CREATE TABLE Connections(
     createAt timestamp without time zone not null default now(),
     updatedAt timestamp without time zone not null default now(),
     FOREIGN KEY (head_user_id) REFERENCES Users(id),
-    FOREIGN KEY (tail_user_id) REFERENCES Users(id)
+    FOREIGN KEY (tail_user_id) REFERENCES Users(id),
+    CONSTRAINT user_info UNIQUE(head_user_id,tail_user_id)
 );
+
 
 
 -- Messages Table
@@ -64,6 +66,16 @@ CREATE TABLE Messages(
 );  
 
 
+-- AddressConstants Table
+CREATE TABLE AddressConstants(
+    id bigserial PRIMARY KEY,
+    city varchar(255) not null,
+    state varchar(255) not null,
+    country varchar(255) not null,
+    createAt timestamp without time zone not null default now(),
+    updatedAt timestamp without time zone not null default now()
+);
+
 -- Address Table
 CREATE TABLE Addresses(
     id bigserial PRIMARY KEY,
@@ -76,14 +88,4 @@ CREATE TABLE Addresses(
     updatedAt timestamp without time zone not null default now(),
     FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (address_constant_id) REFERENCES AddressConstants(id)
-);
-
--- AddressConstants Table
-CREATE TABLE AddressConstants(
-    id bigserial PRIMARY KEY,
-    city varchar(255) not null,
-    state varchar(255) not null,
-    country varchar(255) not null,
-    createAt timestamp without time zone not null default now(),
-    updatedAt timestamp without time zone not null default now()
 );

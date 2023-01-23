@@ -1,0 +1,18 @@
+INSERT INTO authorisations(user_id, email, password)
+values(1, 'aloney0@networkadvertising.org', 'dskjl2401bnas975b'),
+(2, 'cnineham1@aboutads.inf', 'dskjl2401bnas975b'),
+(3, 'kquickfall2@abc.net', 'dskjl2401bnas975b'),
+(4, 'gloton3@shareasale.com', 'dskjl2401bnas975b'),
+(5, 'ggiriardelli4@dropbox.com', 'dskjl2401bnas975b'),
+(6, 'xepton5@tamu.edu', 'dskjl2401bnas975b'),
+(7, 'alawles6@un.org', 'dskjl2401bnas975b'),
+(8, 'rghione7@globo.com', 'dskjl2401bnas975b'),
+(9, 'abuffey8@zimbio.com', 'dskjl2401bnas975b'),
+(10, 'mmarkovic9@bloglines.com', 'dskjl2401bnas975b'),
+(11, 'lsappsona@nydailynews.com', 'dskjl2401bnas975b'),
+(12, 'iprattingtonb@histats.com', 'dskjl2401bnas975b'),
+(13, 'sboothmanc@pagesperso-ora', 'dskjl2401bnas975b'),
+(14, 'mtilstond@creativecommons.org', 'dskjl2401bnas975b'),
+(15, 'hrandse@howstuffworks.com', 'dskjl2401bnas975b'),
+(17, 'anotonio@marky.org', 'dskjl2401bnas975b'),
+(16, 'larry@fink.blackrock', 'dskjl2401bnas975b');
