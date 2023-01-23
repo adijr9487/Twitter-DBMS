@@ -1,5 +1,7 @@
 ## Twitter Schema DBMS Project
 
+Navigate to twitter2 branch for the latest database structure.
+
 ### 1. User
 | Field | Datatype | 
 | --- | --- |
