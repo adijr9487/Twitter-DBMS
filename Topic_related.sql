@@ -1,6 +1,6 @@
 -- Topic table
 
-CREATE TABLE Topics(
+CREATE TABLE IF NOT EXISTS Topics(
     id bigserial PRIMARY KEY,
     value varchar(255) not null,
     count bigint not null default 0,
@@ -9,7 +9,7 @@ CREATE TABLE Topics(
 );
 
 -- Users-Topic table
-CREATE TABLE User_Topic(
+CREATE TABLE IF NOT EXISTS User_Topic(
     id bigserial PRIMARY KEY,
     topic_id bigint not null,
     user_id bigint not null,
@@ -21,7 +21,7 @@ CREATE TABLE User_Topic(
 );
 
 -- Tweets-Topic table
-CREATE TABLE Tweet_Topic(
+CREATE TABLE IF NOT EXISTS Tweet_Topic(
     id bigserial PRIMARY KEY,
     topic_id bigint not null,
     tweet_id bigint not null,
@@ -33,7 +33,7 @@ CREATE TABLE Tweet_Topic(
 );
 
 -- Reply-Topic table
-CREATE TABLE Reply_Topic(
+CREATE TABLE IF NOT EXISTS Reply_Topic(
     id bigserial PRIMARY KEY,
     topic_id bigint not null,
     reply_id bigint not null,
